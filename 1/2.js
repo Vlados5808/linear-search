@@ -3,9 +3,21 @@ let target = 4;
 let result = linearSearch(arr, target);
 
 function linearSearch(arr, target) {
-    let res = [];
-    for (let i = 0; i < arr.length; i++) if (arr[i] === target) res.push(i);
-    return res.length ? res : -1;
-  }
+    if (arr === null || arr === undefined) return "Масив не заданий";
+    if (arr.length === 0) return "Масив порожній";
 
-  console.log(result === -1 ? "Не знайдено" : "Знайдено на індексах: " + result);
+    let indexes = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === target) indexes.push(i);
+    }
+
+    return indexes.length > 0 ? indexes : -1;
+}
+
+if (result === -1) {
+    console.log("Не знайдено");
+} else if (typeof result === "string") {
+    console.log(result);
+} else {
+    console.log("Знайдено на індексах: " + result);
+}
